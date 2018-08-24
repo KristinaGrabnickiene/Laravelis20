@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Http\Request;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,16 +17,27 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/about',function(){
-    return view('about');
+Route::get('/skaiciuokle', 'HomeController@skaiciuokle');
 
+
+// Route su pavadinimu
+Route::post('/suma', 'HomeController@suma')->name('suma');
+
+
+// Paprastas kelias
+Route::get('/about-us', function() {
+    return view('contacts');
 });
 
-Route::get('/naujienos/{id}',function($id){
+
+// Ieskome controllerio failio /app/http/controllers folderyje
+// @index nurodo kokia funkcija naudosime is controllerio
+Route::get('/kontaktai', 'HomeController@index');
+
+// Kelias su parametrais
+Route::get('/naujienos/{id}', function($id) {
     echo $id;
     return view('about');
-
 });
 
-Route::get('/contacts', 'HomeController@index');
 

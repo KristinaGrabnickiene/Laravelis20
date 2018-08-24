@@ -10,7 +10,9 @@
 </head>
 <body>
     
+<h1>
+Skaiciu {{ $skaicius1 }} ir {{ $y }} suma yra: {{ $suma }}
+</h1>
 
-    <h1> Fuck <h1>
 </body>
 </html>
