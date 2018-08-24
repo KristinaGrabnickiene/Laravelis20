@@ -17,6 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+Route::get('/news', 'newscontroller@index'); 
 Route::get('/skaiciuokle', 'HomeController@skaiciuokle');
 
 
@@ -41,3 +43,7 @@ Route::get('/naujienos/{id}', function($id) {
 });
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
