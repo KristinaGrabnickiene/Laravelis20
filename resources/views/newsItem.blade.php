@@ -1,3 +1,5 @@
+
+
 @extends('layouts.app')
 
 @section('content')
@@ -10,5 +12,29 @@
 	<p>
 		{{ $newsItem->content }}
 	</p>
+
+	<hr>
+	<div class="my-3 p-3 bg-white rounded shadow-sm">
+		<h2 class="border-bottom border-gray pb-2 mb-0">Komentarai</h2>
+		<!-- Suskaiciuoju kiek yra komentaru -->
+		@if(count($comments) > 0)
+			<!--  Jei komentaru yra tai spausdinu juos -->
+			@foreach($comments as $comment)
+				<div class="media text-muted pt-3">
+					<div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+					<div class="d-flex justify-content-between align-items-center w-100">
+		              <strong class="text-gray-dark">Anonimas</strong>
+		            </div>
+		            <span class="d-block">{{ $comment->comment_text }}</span>
+					</div>
+				</div>
+			@endforeach
+		@else
+			<!-- Jei komentaru nera tai atspausdinu kazka kito -->
+			<p>
+				Kolkas komentarų nėra
+			</p>
+		@endif
+	</div>
 </div>
 @endsection

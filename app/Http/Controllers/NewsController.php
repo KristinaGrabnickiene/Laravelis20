@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\NewsItem;
+use App\Comment;
 
 class NewsController extends Controller
 {
@@ -49,14 +50,20 @@ class NewsController extends Controller
      */
     public function show($id)
     {
-        {
+
             // Kreipiames i modeli NewsItem
             /* Modelio dokumentacija :
             https://laravel.com/docs/5.6/eloquent
             */
-            $newsItem = NewsItem::find($id);
-            return view('newsItem', ["newsItem" => $newsItem]);
-        }
+        $newsItem = NewsItem::find($id);
+        
+        $allComments = Comment::where("news_id", $id)->get();
+       
+        return view('newsItem', [
+            "newsItem" => $newsItem,
+            "comments" => $allComments
+       ]);
+        
     }
 
     /**
