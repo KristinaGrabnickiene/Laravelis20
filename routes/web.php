@@ -18,7 +18,14 @@ Route::get('/', function () {
 });
 
 
-Route::get('/news', 'newscontroller@index'); 
+Route::get('/news', 'Newscontroller@index')->name('news.index'); 
+
+
+// Kelias konkrecios naujienos atvaidavimui
+/* localhost/naujiena.php?id=5 */
+Route::get("/news/{id}", "NewsController@show")->name('news.show');
+
+
 Route::get('/skaiciuokle', 'HomeController@skaiciuokle');
 
 
@@ -36,11 +43,11 @@ Route::get('/about-us', function() {
 // @index nurodo kokia funkcija naudosime is controllerio
 Route::get('/kontaktai', 'HomeController@index');
 
-// Kelias su parametrais
-Route::get('/naujienos/{id}', function($id) {
-    echo $id;
-    return view('about');
-});
+// // Kelias su parametrais
+// Route::get('/naujienos/{id}', function($id) {
+//     echo $id;
+//     return view('about');
+// });
 
 
 

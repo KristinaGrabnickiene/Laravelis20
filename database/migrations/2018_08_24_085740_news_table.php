@@ -8,7 +8,8 @@ class NewsTable extends Migration
 {
     /**
      * Run the migrations.
-     *
+     *Visi laukeliu tipai gali buti rasti: https://laravel.com/docs/5.6/migrations#columns
+     
      * @return void
      */
     public function up()

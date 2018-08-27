@@ -49,7 +49,14 @@ class NewsController extends Controller
      */
     public function show($id)
     {
-        //
+        {
+            // Kreipiames i modeli NewsItem
+            /* Modelio dokumentacija :
+            https://laravel.com/docs/5.6/eloquent
+            */
+            $newsItem = NewsItem::find($id);
+            return view('newsItem', ["newsItem" => $newsItem]);
+        }
     }
 
     /**
