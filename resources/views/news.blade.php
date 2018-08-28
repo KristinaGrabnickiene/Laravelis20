@@ -15,8 +15,7 @@
 				</a>
 					
 				<small>
-					Komentaru: 
-					{{ $newsItem->comments->count() }}
+					({{ $newsItem->comments->count() }})
 				
 					
 				</small>

@@ -25,7 +25,7 @@
 					<div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
 					<div class="d-flex justify-content-between align-items-center w-100">
 		              <Strong class="text-gray-dark">{{ $comment->user->name }} 
-					 <br>{{ $comment->user->email }}  
+					 
 					 </strong>
 					  
 		            </div>
