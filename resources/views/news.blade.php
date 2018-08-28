@@ -13,6 +13,13 @@
 				<a href="{{ route('news.show', $newsItem->id) }}">
 					{{ $newsItem->title }}
 				</a>
+					
+				<small>
+					Komentaru: 
+					{{ $newsItem->comments->count() }}
+				
+					
+				</small>
 			</h3>
 			<p>
 				<!-- Kreipimasis i route'a su parametrais -->

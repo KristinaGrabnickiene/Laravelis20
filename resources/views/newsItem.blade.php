@@ -16,17 +16,21 @@
 	<hr>
 	<div class="my-3 p-3 bg-white rounded shadow-sm">
 		<h2 class="border-bottom border-gray pb-2 mb-0">Komentarai
-				( {{ $commentCount }} )</h2>
+		( {{ $newsItem->comments->count() }} )</h2>
 		<!-- Suskaiciuoju kiek yra komentaru -->
-		@if(count($comments) > 0)
+		@if(count($newsItem->comments) > 0)
 			<!--  Jei komentaru yra tai spausdinu juos -->
-			@foreach($comments as $comment)
+			@foreach($newsItem->comments as $comment)
 				<div class="media text-muted pt-3">
 					<div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
 					<div class="d-flex justify-content-between align-items-center w-100">
-		              <strong class="text-gray-dark">Anonimas</strong>
+		              <Strong class="text-gray-dark">{{ $comment->user->name }} 
+					 <br>{{ $comment->user->email }}  
+					 </strong>
+					  
 		            </div>
 		            <span class="d-block">{{ $comment->comment_text }}</span>
+					Paskelbta: {{ $comment->created_at }}
 					</div>
 				</div>
 			@endforeach

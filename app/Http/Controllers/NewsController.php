@@ -24,7 +24,7 @@ class NewsController extends Controller
         
             return view("news" , [
                 "news" => $news, 
-                "newsCount" => $newsCount
+                 "newsCount" => $newsCount
             ]);
     }
 
@@ -64,9 +64,9 @@ class NewsController extends Controller
             */
         $newsItem = NewsItem::find($id);
         
-        $allComments = Comment::where("news_id", $id)->get();
-        
-        $commentCount = Comment::where("news_id", $id)->count();
+        // nes prijungiu migracijoje ir modelyje 2 lentele
+        // $allComments = Comment::where("news_id", $id)->get();
+         $commentCount = Comment::where("news_id", $id)->count();
 
 
 
@@ -74,9 +74,10 @@ class NewsController extends Controller
        // $allComments = Comment::where("news_id", $id)->get();
        
         return view('newsItem', [
-            "newsItem" => $newsItem,
-            "comments" => $allComments,
-            "commentCount" => $commentCount
+            "newsItem" => $newsItem
+            //nes prijungiu migracijoje ir modelyje 2 lentele
+            // "comments" => $allComments,
+            // "commentCount" => $commentCount
        ]);
         
     }
