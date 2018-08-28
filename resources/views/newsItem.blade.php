@@ -15,7 +15,8 @@
 
 	<hr>
 	<div class="my-3 p-3 bg-white rounded shadow-sm">
-		<h2 class="border-bottom border-gray pb-2 mb-0">Komentarai</h2>
+		<h2 class="border-bottom border-gray pb-2 mb-0">Komentarai
+				( {{ $commentCount }} )</h2>
 		<!-- Suskaiciuoju kiek yra komentaru -->
 		@if(count($comments) > 0)
 			<!--  Jei komentaru yra tai spausdinu juos -->

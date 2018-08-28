@@ -18,7 +18,14 @@ class NewsController extends Controller
     {
 
         $news = NewsItem::all();
-        return view("news", ["news"=>$news] );
+        //Gaunu naujienu skaiciu
+        $newsCount =  NewsItem::count(); // grazins skaiciu 
+
+        
+            return view("news" , [
+                "news" => $news, 
+                "newsCount" => $newsCount
+            ]);
     }
 
     /**
@@ -58,10 +65,18 @@ class NewsController extends Controller
         $newsItem = NewsItem::find($id);
         
         $allComments = Comment::where("news_id", $id)->get();
+        
+        $commentCount = Comment::where("news_id", $id)->count();
+
+
+
+
+       // $allComments = Comment::where("news_id", $id)->get();
        
         return view('newsItem', [
             "newsItem" => $newsItem,
-            "comments" => $allComments
+            "comments" => $allComments,
+            "commentCount" => $commentCount
        ]);
         
     }

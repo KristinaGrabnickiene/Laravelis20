@@ -4,6 +4,7 @@
 @section('content')
 <div class="container">
 	<h1>Naujienos</h1>
+	Is viso naujienų: {{ $newsCount }} 
 	<!-- Einame per visa naujienu masyva gauta is newsController -->
 	@foreach($news as $newsItem)
 		<div>
